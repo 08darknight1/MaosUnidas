@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\natha\.Rider2018.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\natha\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\natha\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TomorrowTogether.195957950.00" t="ExcludeRecursive" />
+    <e p="C:\Users\natha\Desktop\Work\Materias\5-Semestre\XP-Thais&amp;Amigos\TomorrowTogether" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="cameraController.cs" t="Include" />
+          <e p="playerController.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="TomorrowTogether.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
