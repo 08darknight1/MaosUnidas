@@ -5,38 +5,82 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    public int Speed;
+    public int Weight, Speed, maxSpeed, jumpForce;
 
-    public int maxSpeed;
-
-    private bool isMoving = false;
+    private bool isMoving = false, grounded;
     
-    private Rigidbody playerRGB;
+    private Rigidbody playerRGB;   
+        
+    public string[] collisionObjects = new string[3];
     
-    // Start is called before the first frame update
     void Start()
     {
         playerRGB = gameObject.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(playerRGB.velocity.magnitude > maxSpeed){
-            playerRGB.velocity = Vector3.ClampMagnitude(playerRGB.velocity, maxSpeed);
-        }
-        
         if (Input.GetAxisRaw("Horizontal") != 0)
-        {   
+        {
             isMoving = true;
             var hAxis = Input.GetAxis("Horizontal");
             var forceValue = hAxis * Speed;
-            playerRGB.AddForce(new Vector3(forceValue, gameObject.transform.position.y,gameObject.transform.position.z));
+
+            if (playerRGB.velocity.magnitude < maxSpeed)
+            {
+                playerRGB.AddForce(new Vector3(forceValue, 0f, 0f));
+               // playerRGB.velocity = Vector3.ClampMagnitude(playerRGB.velocity, maxSpeed);
+            }
         }
         else
         {
             isMoving = false;
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        {
+            playerRGB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        for (var x = 0; x < collisionObjects.Length; x++)
+        {
+            if (other.gameObject.tag == collisionObjects[x])
+            {
+                grounded = true;
+                break;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        for (var x = 0; x < collisionObjects.Length; x++)
+        {
+            if (other.gameObject.tag == collisionObjects[x])
+            {
+                grounded = false;
+                break;
+            }
+        } 
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        for (var x = 0; x < collisionObjects.Length; x++)
+        {
+            if (other.gameObject.tag == collisionObjects[x])
+            {
+                grounded = true;
+                break;
+            }
+        }
+    }
+
+    public bool returnGroundedState()
+    {
+        return grounded;
     }
 }

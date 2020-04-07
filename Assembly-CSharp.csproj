@@ -59,8 +59,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\NPC_script.cs" />
+    <Compile Include="Assets\Scripts\boxScript.cs" />
     <Compile Include="Assets\Scripts\cameraController.cs" />
     <Compile Include="Assets\Scripts\playerController.cs" />
+    <Compile Include="Assets\platformScript.cs" />
+    <Compile Include="Assets\subPlatformScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/natha/Desktop/Work/Materias/5-Semestre/XP-Thais&amp;Amigos/TomorrowTogether/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

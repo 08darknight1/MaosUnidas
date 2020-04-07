@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cameraController : MonoBehaviour
-{
+{   
     private GameObject playerGO;
     
     // Start is called before the first frame update
