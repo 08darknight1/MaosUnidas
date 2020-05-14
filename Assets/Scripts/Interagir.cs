@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interagir : MonoBehaviour
 {
-    public GameObject Area;
+  //  public GameObject Area;
     public GameObject Luz;
 
     private void Start()
@@ -14,11 +14,18 @@ public class Interagir : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            if (Input.GetButton("E"))
+            if (Input.GetButtonDown("E"))
             {
-                Luz.SetActive(true);
+                if (Luz.active == true)
+                {
+                    Luz.SetActive(false);
+                }
+                else
+                {
+                    Luz.SetActive(true);
+                }
             }
         }
     }

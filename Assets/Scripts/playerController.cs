@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    public GameObject dialoguePanel; 
+    
     public int Weight, Speed, maxSpeed, jumpForce;
 
     private bool isMoving = false, grounded;
@@ -12,34 +14,78 @@ public class playerController : MonoBehaviour
     private Rigidbody playerRGB;   
         
     public string[] collisionObjects = new string[3];
+
+    private bool canMove = true;
+
+    public float lowFallMultiplier = 2f, fallMultiplier = 2.5f;
+
+    private GameObject pauseCanvas;
     
     void Start()
     {
         playerRGB = gameObject.GetComponent<Rigidbody>();
+        
+        var fullCanvas = GameObject.Find("Canvas");
+
+        pauseCanvas = fullCanvas.transform.GetChild(0).gameObject;
+        
+        pauseCanvas.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (dialoguePanel.active)
         {
-            isMoving = true;
-            var hAxis = Input.GetAxis("Horizontal");
-            var forceValue = hAxis * Speed;
-
-            if (playerRGB.velocity.magnitude < maxSpeed)
-            {
-                playerRGB.AddForce(new Vector3(forceValue, 0f, 0f));
-               // playerRGB.velocity = Vector3.ClampMagnitude(playerRGB.velocity, maxSpeed);
-            }
+            canMove = false;
         }
         else
         {
-            isMoving = false;
+            canMove = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
-            playerRGB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (pauseCanvas.active == false)
+            {
+                canMove = false;
+                pauseCanvas.SetActive(true);
+            }
+            else
+            {
+                canMove = true;
+                pauseCanvas.SetActive(false);
+            }
+        }
+        
+        if (canMove)
+        {
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                isMoving = true;
+                var hAxis = Input.GetAxis("Horizontal");
+                var forceValue = hAxis * Speed;
+
+                if (playerRGB.velocity.magnitude < maxSpeed)
+                {
+                    playerRGB.AddForce(new Vector3(forceValue, 0f, 0f));
+                }
+            }
+            else
+            {
+                isMoving = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            {
+                playerRGB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+            
+            if (playerRGB.velocity.y < 0)
+            {
+                playerRGB.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            } else if (playerRGB.velocity.y > 0 && !Input.GetKeyDown(KeyCode.Space)){
+                playerRGB.velocity += Vector3.up * Physics.gravity.y * (lowFallMultiplier - 1) * Time.deltaTime;
+            }
         }
     }
 
@@ -82,5 +128,15 @@ public class playerController : MonoBehaviour
     public bool returnGroundedState()
     {
         return grounded;
+    }
+
+    public void ChangeMoveBool_False()
+    {
+        canMove = false;
+    }
+    
+    public void ChangeMoveBool_True()
+    {
+        canMove = true;
     }
 }

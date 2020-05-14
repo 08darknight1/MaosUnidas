@@ -7,14 +7,28 @@
     <e p="C:\Users\natha\Desktop\Work\Materias\5-Semestre\XP-Thais&amp;Amigos\TomorrowTogether" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="platformScript.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="boxScript.cs" t="Include" />
           <e p="cameraController.cs" t="Include" />
+          <e p="CharCreationCode" t="Include">
+            <e p="beginButtonScript.cs" t="Include" />
+            <e p="charEditor.cs" t="Include" />
+            <e p="updateCharAppearance.cs" t="Include" />
+          </e>
+          <e p="dialogueController.cs" t="Include" />
+          <e p="dialogueTrigger.cs" t="Include" />
+          <e p="Interagir.cs" t="Include" />
           <e p="NPC_script.cs" t="Include" />
+          <e p="pauseController.cs" t="Include" />
           <e p="playerController.cs" t="Include" />
+          <e p="playerData.cs" t="Include" />
+          <e p="puzzleScript.cs" t="Include" />
+          <e p="Scripts_Buttons" t="Include">
+            <e p="Buttons_Play.cs" t="Include" />
+          </e>
+          <e p="subPlatformScript.cs" t="Include" />
+          <e p="timerScript.cs" t="Include" />
         </e>
-        <e p="subPlatformScript.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
