@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TelaInicial.unity
     guid: 6448c064bc413d245b23603d0eec0d71
   - enabled: 1
+    path: Assets/Scenes/CharCreatorTest.unity
+    guid: 7d944ba1dbbe3c9479084e7e2b172f7d
+  - enabled: 1
     path: Assets/Scenes/Jogo.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
