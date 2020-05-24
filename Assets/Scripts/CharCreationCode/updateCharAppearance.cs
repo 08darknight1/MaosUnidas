@@ -11,6 +11,18 @@ public class updateCharAppearance : MonoBehaviour
     
     void Start()
     {
+        var vamosVer = GameObject.Find(playerData.lastPlaceSaved);
+
+        if (vamosVer != null)
+        {
+            vamosVer.GetComponent<saveDialogueTrigger>().changeAlreadyActivated();
+
+            vamosVer.GetComponent<saveDialogueTrigger>().luzinha.SetActive(true);
+        }
+
+        gameObject.transform.position =
+            new Vector3(playerData.playerPos[0], playerData.playerPos[1], playerData.playerPos[2]);
+        
         head = gameObject.transform.GetChild(0).gameObject;
         
         body = gameObject.transform.GetChild(1).gameObject;

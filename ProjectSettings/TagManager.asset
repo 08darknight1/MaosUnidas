@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Platform
   - npc_Child
+  - saveButton
   layers:
   - Default
   - TransparentFX
