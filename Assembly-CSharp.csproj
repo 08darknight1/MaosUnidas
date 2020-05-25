@@ -75,11 +75,11 @@
     <Compile Include="Assets\Scripts\Puzzles\subPlatformScript.cs" />
     <Compile Include="Assets\Scripts\Puzzles\timerScript.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\loadSystemMenu.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem\playTimeClock.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\playerData.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\playerSaveFile.cs" />
     <Compile Include="Assets\Scripts\SaveSystem\saveSystem.cs" />
     <Compile Include="Assets\Scripts\Scripts_Buttons\Buttons_Play.cs" />
-    <Compile Include="Assets\playTimeClock.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/natha/Desktop/Work/Materias/5-Semestre/XP-Thais&amp;Amigos/TomorrowTogether/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

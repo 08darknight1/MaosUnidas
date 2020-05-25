@@ -7,7 +7,6 @@
     <e p="C:\Users\natha\Desktop\Work\Materias\5-Semestre\XP-Thais&amp;Amigos\TomorrowTogether" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="playTimeClock.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CharCreationCode" t="Include">
             <e p="beginButtonScript.cs" t="Include" />
@@ -34,6 +33,7 @@
             <e p="loadSystemMenu.cs" t="Include" />
             <e p="playerData.cs" t="Include" />
             <e p="playerSaveFile.cs" t="Include" />
+            <e p="playTimeClock.cs" t="Include" />
             <e p="saveSystem.cs" t="Include" />
           </e>
           <e p="Scripts_Buttons" t="Include">

@@ -19,12 +19,7 @@ public class loadSystemMenu : MonoBehaviour
   //    Debug.Log(saveFiles.Length);
       
       if (saveFiles.Length > 0)
-      {     /*
-          for (int x = 0; x < saveFiles.Length; x++)
-          {
-              Debug.Log(saveFiles[x]);
-          }*/
-          
+      {   
           for (int x = 0; x < saveButtons.Length; x++)
           {
               saveButtons[x].SetActive(false);
@@ -50,9 +45,16 @@ public class loadSystemMenu : MonoBehaviour
       }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        
+        for (int x = 0; x < saveButtons.Length; x++)
+        {
+            if (saveButtons[x].active == true)
+            {
+                var playtime = saveButtons[x].transform.GetChild(6);
+                playtime.GetComponent<Text>().text = saveFiles[x].playTime.ToString("F2");
+            }
+        }
     }
 
     private void createButtonForAllFiles(GameObject button, playerSaveFile saveFile)
@@ -66,7 +68,8 @@ public class loadSystemMenu : MonoBehaviour
         nome.GetComponent<Text>().text = saveFile.playerName;
         peopleSaved.GetComponent<Text>().text = saveFile.peopleSaved.ToString();
         map.GetComponent<Text>().text = saveFile.mapName;
-        playtime.GetComponent<Text>().text = saveFile.playTime.ToString("N2");
+        
+        playtime.GetComponent<Text>().text = saveFile.playTime.ToString("F2");
 
         nome.GetComponent<Text>().text = saveFile.playerName;
         peopleSaved.GetComponent<Text>().text = saveFile.peopleSaved.ToString();

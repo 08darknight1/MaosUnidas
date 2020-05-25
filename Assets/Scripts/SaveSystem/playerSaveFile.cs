@@ -27,7 +27,7 @@ public class playerSaveFile
 
     public int peopleSaved;
 
-    public float playTime = 0;
+    public float playTime;
 
     public string mapName;
 
@@ -56,7 +56,6 @@ public class playerSaveFile
         pantsMaterial = playerData.pantsMaterial;
        
         peopleSaved = playerData.peopleSaved;
-        //textoTimer.GetComponent<Text>().text = timeLeft.ToString("N0");
         
         saveIndex = playerData.saveIndex;
 

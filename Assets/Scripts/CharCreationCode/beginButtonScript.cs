@@ -51,9 +51,19 @@ public class beginButtonScript : MonoBehaviour
         playerData.pantsMaterial = canvasGO.GetComponent<charEditor>().SelectedMaterials[3].name;
         
         playerData.naked = false;
+
+        playerData.peopleSaved = 0;
         
         playerData.saveIndex = UnityEngine.Random.Range(0, 99999999999);
-         
+
+        playerData.playerPos[0] = 0;
+        
+        playerData.playerPos[1] = 0;
+        
+        playerData.playerPos[2] = 0;
+
+        playerData.lastPlaceSaved = null;
+        
         SceneManager.LoadScene(2);
     }
 }

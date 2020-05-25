@@ -38,6 +38,7 @@ public class pauseController : MonoBehaviour
     {
         var clock = GameObject.Find("PlayTimeClock");
         clock.GetComponent<playTimeClock>().DestroyClock();
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 }
