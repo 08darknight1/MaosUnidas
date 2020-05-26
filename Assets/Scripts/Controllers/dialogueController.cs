@@ -151,8 +151,6 @@ public class dialogueController : MonoBehaviour
             }
         }
         
-        Debug.Log(fullString);
-        
         return fullString;
     }
 

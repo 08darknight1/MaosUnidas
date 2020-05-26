@@ -8,6 +8,8 @@ public class saveDialogueTrigger : MonoBehaviour
 {
     public string[] newDialogue = new string[3];
     
+    private string[] dialogue2 = new string[1];
+    
     private bool CanInitiateDialogue = false;
 
     private GameObject dialogueC;
@@ -19,6 +21,8 @@ public class saveDialogueTrigger : MonoBehaviour
     void Start()
     {
         dialogueC = GameObject.Find("DialogueCanvas");
+
+        dialogue2[0] = "Não foi possível salvar seu progresso, pois já existem 5 jogos salvos nesse computador.";
     }
     
     void Update()
@@ -29,30 +33,29 @@ public class saveDialogueTrigger : MonoBehaviour
             {
                 var player = GameObject.Find("Player");
 
-                dialogueC.GetComponent<dialogueController>().activateDialoguePanel(newDialogue);
-
-                alreadyActivated = true;
-/*
-                if (saveSystem.CheckIfFileExist())
+                if (saveSystem.returnAllFilesState())
                 {
-                    playerData.playTime = Time.deltaTime;
-                    saveSystem.SaveOverFile();
+                    dialogueC.GetComponent<dialogueController>().activateDialoguePanel(dialogue2);
+
+                    alreadyActivated = true;
                 }
                 else
                 {
-                    playerData.playTime = Time.deltaTime;*/
+                    dialogueC.GetComponent<dialogueController>().activateDialoguePanel(newDialogue);
 
-                playerData.lastPlaceSaved = gameObject.name;
-                
-                playerData.playerPos[0] = player.transform.position.x;
-                playerData.playerPos[1] = player.transform.position.y;
-                playerData.playerPos[2] = player.transform.position.z;
-                
-                playerData.mapName = SceneManager.GetActiveScene().name;
-                saveSystem.CreateNewSaveFile();
-             //   }
-             
-             luzinha.SetActive(true);
+                    alreadyActivated = true;
+
+                    playerData.lastPlaceSaved = gameObject.name;
+
+                    playerData.playerPos[0] = player.transform.position.x;
+                    playerData.playerPos[1] = player.transform.position.y;
+                    playerData.playerPos[2] = player.transform.position.z;
+
+                    playerData.mapName = SceneManager.GetActiveScene().name;
+                    saveSystem.CreateNewSaveFile();
+
+                    luzinha.SetActive(true);
+                }
             }
         }
     }
